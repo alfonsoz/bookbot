@@ -7,7 +7,7 @@ def get_book_text(path):
 def word_count(text):
     return len(text.split())
 
-#count amount of duplicate letters in text
+#count amount of duplicate letters in text, return value = dictionary
 def letter_count(text):
     letter_dict = {}
     #lowercase for every char
@@ -18,4 +18,18 @@ def letter_count(text):
         else:
             letter_dict[letter] += 1
     return letter_dict
+
+#helper function to sort items
+def sort_on(items):
+    return items["num"]
+
+#sort input dictionary, return value = list
+def sort_dict(dictionary):
+    sorted = []    
+    for key in dictionary:
+        sorted.append({"char":key, "num":dictionary[key]})
+    #sort list
+    sorted.sort(reverse=True, key=sort_on)
+
+    return sorted
 
